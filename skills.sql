@@ -51,7 +51,11 @@ OFFSET 14;
 --    for model(s) even if its brand is not in the Brands table.
 --    (The year the brand was founded should be NULL if
 --    the brand is not in the Brands table.)
-
+SELECT m.brand_name, m.name, b.founded
+FROM models AS m
+LEFT JOIN brands AS b
+ON m.brand_name = b.name
+WHERE m.year = 1960;
 
 
 -- Part 2: Change the following queries according to the specifications.
