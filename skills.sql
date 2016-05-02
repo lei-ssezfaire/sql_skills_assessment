@@ -94,7 +94,7 @@ ON b.name = m.brand_name;
 
 -- followup question: In your own words, describe the difference between
 -- left joins and inner joins.
-'Inner joins will only join and display the intersection of the given tables, while left joins will join and display all relevant items from the left table regardless of intersection. The resulting query will display NULL if an item from the left table is not in the right table.'
+Inner joins will only join and display the intersection of the given tables, while left joins will join and display all relevant items from the left table regardless of intersection. The resulting query will display NULL if an item from the left table is not in the right table.
 
 -- 3. Modify the query so that it only selects brands that don't have any models in the models table.
 -- (Hint: it should only show Tesla's row.)
@@ -137,6 +137,10 @@ WHERE b.discontinued IS NOT NULL;
 -- Part 3: Further Study
 
 -- 1. Select the name of any brand with more than 5 models in the database.
+SELECT brand_name, COUNT(name)
+FROM models
+GROUP BY brand_name
+HAVING COUNT(name) > 5;
 
 -- 2. Add the following rows to the Models table.
 
@@ -152,6 +156,11 @@ WHERE b.discontinued IS NOT NULL;
 --    with columns `name`, `year`, and `winner`. Choose
 --    an appropriate datatype and nullability for each column
 --   (no need to do subqueries here).
+CREATE TABLE awards(
+  name VARCHAR(40) NOT NULL,
+  year INTEGER NOT NULL,
+  winner VARCHAR(40) NOT NULL
+  );
 
 -- 4. Write a SQL statement that adds the following rows to the Awards table:
 

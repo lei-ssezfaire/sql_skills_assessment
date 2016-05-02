@@ -13,6 +13,12 @@ CREATE TABLE brands (
     discontinued INTEGER
 );
 
+CREATE TABLE awards(
+  name VARCHAR(40) NOT NULL,
+  year INTEGER NOT NULL,
+  winner VARCHAR(40) NOT NULL
+  );
+
 INSERT INTO brands (name, founded, headquarters, discontinued)
 VALUES ('Ford', 1903, 'Dearborn, MI', NULL),
 ('Chrysler', 1925, 'Auburn Hills, Michigan', NULL),
@@ -78,4 +84,6 @@ INSERT INTO models (year, brand_name, name) VALUES
 (1964, 'Pontiac', 'Grand Prix'),
 (1964, 'Plymouth', 'Fury'),
 (1964, 'Studebaker', 'Avanti'),
-(1964, 'Austin', 'Mini Cooper');
+(1964, 'Austin', 'Mini Cooper'),
+(2015, 'Chevrolet', 'Malibu'),
+(2015, 'Subaru', 'Outback')
