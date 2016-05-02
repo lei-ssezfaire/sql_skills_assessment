@@ -10,13 +10,21 @@ WHERE brand_name = 'Pontiac';
 
 -- 3. Select the brand name and model
 --    name for all models made in 1964 from the Models table.
-
+SELECT brand_name, name
+FROM models
+WHERE year = 1964;
 
 -- 4. Select the model name, brand name, and headquarters for the Ford Mustang
 --    from the Models and Brands tables.
+SELECT m.name, m.brand_name, b.headquarters
+FROM models AS m
+JOIN brands AS b
+ON m.brand_name = b.name
+WHERE m.name = 'Mustang';
 
 -- 5. Select all rows for the three oldest brands
 --    from the Brands table (Hint: you can use LIMIT and ORDER BY).
+
 
 -- 6. Count the Ford models in the database (output should be a number).
 
