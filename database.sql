@@ -14,6 +14,7 @@ CREATE TABLE brands (
 );
 
 CREATE TABLE awards(
+  id SERIAL PRIMARY KEY,
   name VARCHAR(40) NOT NULL,
   year INTEGER NOT NULL,
   winner VARCHAR(40) NOT NULL
@@ -86,4 +87,8 @@ INSERT INTO models (year, brand_name, name) VALUES
 (1964, 'Studebaker', 'Avanti'),
 (1964, 'Austin', 'Mini Cooper'),
 (2015, 'Chevrolet', 'Malibu'),
-(2015, 'Subaru', 'Outback')
+(2015, 'Subaru', 'Outback');
+
+INSERT INTO awards (name, year, winner)
+VALUES ('IIHS Safety Award', 2015, 'Chevrolet Malibu')
+('IIHS Safety Award', 2015, 'Subaru Outback');

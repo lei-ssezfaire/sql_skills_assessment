@@ -157,6 +157,7 @@ HAVING COUNT(name) > 5;
 --    an appropriate datatype and nullability for each column
 --   (no need to do subqueries here).
 CREATE TABLE awards(
+  id SERIAL PRIMARY KEY,
   name VARCHAR(40) NOT NULL,
   year INTEGER NOT NULL,
   winner VARCHAR(40) NOT NULL
@@ -171,9 +172,18 @@ CREATE TABLE awards(
 --   ----                 ----      ---------------
 --   IIHS Safety Award    2015      the id for the 2015 Chevrolet Malibu
 --   IIHS Safety Award    2015      the id for the 2015 Subaru Outback
+INSERT INTO awards (name, year, winner)
+VALUES ('IIHS Safety Award', 2015, 'Chevrolet Malibu')
+('IIHS Safety Award', 2015, 'Subaru Outback');
+
 
 -- 5. Using a subquery, select only the *name* of any model whose
 -- year is the same year that *any* brand was founded.
+SELECT name, year
+FROM models
+WHERE year IN
+(SELECT founded
+ from brands)
 
 
 
